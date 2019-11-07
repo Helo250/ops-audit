@@ -1,0 +1,43 @@
+version: 1
+disable_existing_logers: True
+formatters:
+    verbose:
+        format: '[%(asctime)s] [%(process)d] [%(levelname)s] %(name)s(%(thread)d) %(message)s'
+    simple:
+        format: '%(levelname)s %(message)s'
+    json:
+        (): core.loggers.JsonFormatter
+handlers:
+    console:
+        class: logging.StreamHandler
+        formatter: verbose
+    json:
+        class: logging.StreamHandler
+        formatter: json
+    file:
+        class: logging.handlers.RotatingFileHandler
+        formatter: json
+        filename: info.log
+        maxBytes: 1024000
+        backupCount: 10
+loggers:
+    sanic.root:
+        handlers: [console]
+        propagate: True
+        level: INFO
+    zipkin:
+        handlers: [json]
+        propagate: True
+        level: DEBUG
+    logstash:
+        handlers: [file]
+        propagate: True
+        level: DEBUG
+    kafka.producer:
+        handlers: [console]
+        propagate: True
+        level: DEBUG
+    kafka.consumer:
+        handlers: [console]
+        propagate: True
+        level: INFO

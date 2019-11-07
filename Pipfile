@@ -1,0 +1,25 @@
+[[source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+aiohttp = "==3.6.2"
+asyncpg = "==0.19.0"
+basictracer = "==3.1.0"
+dill = "==0.3.1.1"
+kafka-python = "==1.4.7"
+peewee = "==3.11.2"
+psycopg2 = "==2.8.3"
+PyJWT = "==1.7.1"
+python-consul = "==1.1.0"
+PyYAML = "==5.1.2"
+sanic = "==19.9.0"
+
+#psycopg2 = {index = "http://pypi.douban.com/simple/",version = "*"}
+
+
+[requires]
+python_version = "3.6"
